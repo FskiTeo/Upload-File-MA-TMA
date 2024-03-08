@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     if(isset($_FILES['fileToUpload']) && isset($_POST['submitUpload'])){
-        if(in_array($imageFileType, array("pdf", "img"))){
+        if(in_array($imageFileType, array("pdf", "png", "jpg", "svg"))){
             if (!file_exists($target_file)) {
                 if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
                     $success = "Your file has been uploaded !";
